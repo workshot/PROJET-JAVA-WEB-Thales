@@ -2,7 +2,7 @@ package model;
 
 public class Client {
 	
-    private int id;
+    private String id;
 
 	private String nom;
 	
@@ -23,7 +23,7 @@ public class Client {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Client(int id, String nom, String prenom, String password, String adresse, String email, String tel,
+	public Client(String id, String nom, String prenom, String password, String adresse, String email, String tel,
 			String livraison) {
 		super();
 		this.id = id;
@@ -36,17 +36,17 @@ public class Client {
 		this.livraison = livraison;
 	}
 
-	public Client(int id, String password) {
+	public Client(String id, String password) {
 		super();
 		this.id = id;
 		this.password = password;
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -128,5 +128,7 @@ public class Client {
 		builder.append("]");
 		return builder.toString();
 	}
+	
 
+	
 }

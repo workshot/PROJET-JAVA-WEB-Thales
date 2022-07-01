@@ -24,7 +24,7 @@ public class LoginServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int id = Integer.parseInt(request.getParameter("id"));
+		String id = request.getParameter("id");
 		String pass = request.getParameter("password");
 		Client u = null;
 		//PrintWriter pwOut = response.getWriter(); 
@@ -60,12 +60,12 @@ public class LoginServlet extends HttpServlet {
 	}
 	
 	
-	public boolean inscrire(int idUser, String nom, String pass,boolean sesouvenirdemoi) throws ClassNotFoundException, SQLException {
-		return new ClientDaoImpl().inscription(idUser, nom, pass,false );
+	public boolean inscrire(String id, String nom, String pass,boolean sesouvenirdemoi) throws ClassNotFoundException, SQLException {
+		return new ClientDaoImpl().inscription(id, nom, pass,false );
 	}
 	
 	
-	public boolean connecter(HttpSession session, int id, String password) {
+	public boolean connecter(HttpSession session, String id, String password) {
 		boolean estConnecte = false;
 		if(new ClientDaoImpl().authentification(id , password)) {
 			session.setAttribute("USER_CONNECTED_SESSION",new ClientDaoImpl().connexion(id, password));

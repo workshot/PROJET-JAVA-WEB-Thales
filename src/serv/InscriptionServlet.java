@@ -24,7 +24,7 @@ public class InscriptionServlet extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int id = Integer.parseInt(request.getParameter("id"));
+		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 		String nom = request.getParameter("nom");
 		String prenom = request.getParameter("prenom");

@@ -25,7 +25,7 @@ public class ClientDaoImpl implements DaoClient{
 	public void update(Client u) throws ClassNotFoundException, SQLException {
 
 		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bijou", "root", "root");
+		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_bijoux", "root", "root");
 
 		String sql = "update client set id='" + u.getId() + "',password='" + u.getPassword() + "',nom="+u.getNom()+ "',adresse="+u.getAdresse()+ "',email="+u.getEmail()+ "',tel="+u.getTel()+ "',livraison="+u.getLivraison()+ " where prenom="
 				+ u.getPrenom();
@@ -42,7 +42,7 @@ public class ClientDaoImpl implements DaoClient{
 
 		String sql = "insert into client values(?, ?, ?, ?, ?, ?, ?, ?)";
 		PreparedStatement ps = conn.prepareStatement(sql);
-		ps.setInt(1, u.getId());
+		ps.setString(1, u.getId());
 		ps.setString(3, u.getNom());
 		ps.setString(4, u.getPrenom());
 		ps.setString(2, u.getPassword());
@@ -69,7 +69,7 @@ public class ClientDaoImpl implements DaoClient{
 		Client u = null;
 		while (rs.next()) {
 			u = new Client();
-			u.setId(rs.getInt("id"));
+			u.setId(rs.getString("id"));
 			u.setNom(rs.getString("nom"));
 			u.setPrenom(rs.getString("prenom"));
 			u.setPassword(rs.getString("password"));
@@ -85,18 +85,18 @@ public class ClientDaoImpl implements DaoClient{
 		return liste;
 	}
 
-	public Client findById(Integer id) throws ClassNotFoundException, SQLException {
+	public Client findById(String id) throws ClassNotFoundException, SQLException {
 		Client u = null;
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_bijoux", "root", "root");
 
-		String sql = "select * from client where id = " + id ;
+		String sql = "select * from client where id like '" + id + "'";
 		Statement st = conn.createStatement();
 		ResultSet rs = st.executeQuery(sql);
 
 		while (rs.next()) {
 			u = new Client();
-			u.setId(rs.getInt("id"));
+			u.setId(rs.getString("id"));
 			u.setNom(rs.getString("nom"));
 			u.setPrenom(rs.getString("prenom"));
 			u.setPassword(rs.getString("password"));
@@ -111,14 +111,14 @@ public class ClientDaoImpl implements DaoClient{
 	}
 
 
-	public Client checkauthent(int id, String password) throws ClassNotFoundException, SQLException {
+	public Client checkauthent(String id, String password) throws ClassNotFoundException, SQLException {
 		Client u = findById(id);
 		if (u != null && u.getPassword().equals(password))
 			return u;
 		return null;
 	}
 	
-	public Client connexion(int id, String motdepasse) {
+	public Client connexion(String id, String motdepasse) {
 		Client connectedUser = null;
 		if(this.authentification(id, motdepasse)) {
 			try {
@@ -140,7 +140,7 @@ public class ClientDaoImpl implements DaoClient{
 	 * @param motdepasse
 	 * @return
 	 */
-	public boolean authentification(int id, String pass) {
+	public boolean authentification(String id, String pass) {
 		boolean estAuthentifie = false;
 		Client userToFind = null;
 		try {
@@ -167,7 +167,7 @@ public class ClientDaoImpl implements DaoClient{
 	 * @throws SQLException 
 	 * @throws ClassNotFoundException 
 	 */
-	public boolean isUserExists(int id) throws ClassNotFoundException, SQLException {
+	public boolean isUserExists(String id) throws ClassNotFoundException, SQLException {
 		return (this.findById(id) != null);
 	}
 	
@@ -181,7 +181,7 @@ public class ClientDaoImpl implements DaoClient{
 	 * @throws SQLException 
 	 * @throws ClassNotFoundException 
 	 */
-	public boolean inscription(int id, String nom, String pass, boolean seSouvenirdeMoi) throws ClassNotFoundException, SQLException {
+	public boolean inscription(String id, String nom, String pass, boolean seSouvenirdeMoi) throws ClassNotFoundException, SQLException {
 		boolean estInscrit = false;
 		
 		if(!this.isUserExists(id)) {
