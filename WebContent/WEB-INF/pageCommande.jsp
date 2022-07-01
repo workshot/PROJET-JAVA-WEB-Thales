@@ -1,13 +1,6 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>commande</title>
-</head>
+<%@ include file="/header.jsp" %>
 <body>
+	<%@ include file="/menu.jsp" %>
 
 	<h2>Bienvenue <c:out value="${sessionScope.client}"/> !</h2>
 
@@ -19,7 +12,7 @@
 		<form action="commande" method="get">
 
 			<select name="articleChoisi">
-				<c:forEach var="a" items="${sessionScope.articles}">
+				<c:forEach var="a" items="${applicationScope.articles}">
 					<option value='<c:out value="${a.id}"/>'><c:out
 							value="${a.idCategorie} - ${a.nom} : ${a.prix} " /></option>
 				</c:forEach>
@@ -58,5 +51,6 @@
 
 		</form>
 	</div>
+<%@ include file="/footerAccueil.jsp"%>
 </body>
 </html>
