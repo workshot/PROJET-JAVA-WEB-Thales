@@ -24,20 +24,21 @@ public class ServletCommande extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		if (request.getParameter("articleChoisi") != null) {
-			int idArticle = Integer.parseInt(request.getParameter("articleChoisi"));
+		if (request.getParameter("art") != null) {
+			int idArticle = Integer.parseInt(request.getParameter("art"));
 			Article article = null;
 			try {
 				article = new ArticleDaoImpl().findById(idArticle);
 			} catch (ClassNotFoundException | SQLException e) {
 				e.printStackTrace();
 			}
-			int qte = Integer.parseInt(request.getParameter("quantite"));
+			int qte = Integer.parseInt(request.getParameter("qte"));
 
 			if (article != null && qte != 0) {
 				panier.addItem(article, qte);
 			}
 		}
+		request.getSession(true).setAttribute("total", panier.getTotal());
 		request.getSession(true).setAttribute("items", panier.getItems());
 		request.getRequestDispatcher("WEB-INF/pageCommande.jsp").forward(request, response);
 	}
@@ -45,7 +46,7 @@ public class ServletCommande extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		request.setAttribute("total", panier.getTotal());
+		request.getSession(true).setAttribute("total", panier.getTotal());
 		request.getSession(true).setAttribute("items", panier.getItems());
 		request.getRequestDispatcher("WEB-INF/pageFacture.jsp").forward(request, response);
 

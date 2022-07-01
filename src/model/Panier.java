@@ -31,7 +31,7 @@ public class Panier {
 		return "Panier [items=" + items + "]";
 	}
 
-	public Object getTotal() {
+	public double getTotal() {
 		double total = 0;
 		for(Entry<Article, Integer> entry : items.entrySet()) {
 			total += entry .getKey().getPrix() * entry .getValue();			

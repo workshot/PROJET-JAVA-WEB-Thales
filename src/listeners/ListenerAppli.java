@@ -28,12 +28,12 @@ public class ListenerAppli implements ServletContextListener {
 	}
 
 	public void contextInitialized(ServletContextEvent arg0) {
-		System.out.println("coucou nouvelle appli");
 		try {
 			articles = new ArticleDaoImpl().findAll();
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
+			
 		try {
 			lCtegories = new CategorieDaoImpl().findAll();
 		} catch (ClassNotFoundException | SQLException e) {

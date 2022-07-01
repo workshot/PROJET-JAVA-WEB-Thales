@@ -1,11 +1,25 @@
-<%@ include file="/header.jsp" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ include file="/header.jsp"%>
+<head>
+<link rel="stylesheet" type="text/css"
+	href="assets/css/styleCommande.css">
+</head>
 <body>
-	<%@ include file="/menu.jsp" %>
+	<%@ include file="/menu.jsp"%>
 
-	<h2>La commande de <c:out value="${sessionScope.client}"/> (Montant total du panier : <c:out value="${total}"/> &euro;)</h2>
-
+	<h2>
+		Commande de
+		<c:out value="${sessionScope.client}" />
+	</h2>
+	<h3>
+		Montant total du panier :
+		<fmt:formatNumber type="number" minFractionDigits="2"
+			maxFractionDigits="2" value="${sessionScope.total}" />
+		&euro;
+	</h3>
+	<br />
+	<br />
 	<div class="panier">
-		<h5>Faites votre choix parmi nos articles :</h5>
 
 		<form action="facture" method="post">
 			<table>
@@ -16,18 +30,22 @@
 				</tr>
 				<c:forEach var="i" items="${sessionScope.items}">
 					<tr>
-						<th><c:out value="${i.key.nom}"/></th>
-						<th><c:out value="${i.value}"/></th>
-						<th><c:out value="${i.value * i.key.prix}"/></th>
+						<td><c:out value="${i.key.nom}" /></td>
+						<td><c:out value="${i.value}" /></td>
+						<td><fmt:formatNumber type="number" minFractionDigits="2"
+								maxFractionDigits="2" value="${i.value * i.key.prix}" /></td>
 					</tr>
 				</c:forEach>
 			</table>
-			
-			<button type="button">Retour au panier</button>
+			<br /> <br />
+
+			<button type="button" onclick="window.location.href = 'commande'">Retour
+				au panier</button>
 			<button type="submit">Valider la commande</button>
+			<br /> <br />
 
 		</form>
 	</div>
-<%@ include file="/footerAccueil.jsp"%>
+	<%@ include file="/footerAccueil.jsp"%>
 </body>
 </html>

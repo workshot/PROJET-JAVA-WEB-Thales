@@ -1,17 +1,12 @@
-.listeArticles {
+.container {
 	display: flex;
 	flex-wrap: wrap;
 }
 
-.categTitle {
-	font-size: 3em;
-	text-decoration: underline;
-}
-
 .card {
 	box-sizing: border-box;
-	width: 400px;
-	height: 400px;
+	min-width: 450px;
+	min-height: 400px;
 	margin: 20px;
 	padding: 10px 30px;
 	box-shadow: lightgray 4px 4px 20px;
@@ -37,11 +32,31 @@ h2 {
 	font-size: 16px;
 }
 
-.popup {	
-	display : none;
-
+option[value=""][disabled] {
+	display: none;
 }
 
-.popup.active {
-	display : inline;
+table {
+	text-align: right;
+}
+
+th, td {
+	padding: 0px 10px;
+}
+
+th {
+	border-bottom: 1px solid black;
+	min-width: 100px;
+}
+
+td {
+	border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+.total {
+	text-align: right;
 }
