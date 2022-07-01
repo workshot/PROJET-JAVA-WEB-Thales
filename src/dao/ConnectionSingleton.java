@@ -11,8 +11,8 @@ public class ConnectionSingleton {
 	private static final String user = "root";
 	private static final String passwd = "@mbrE2002laverp";
 	
-	public static Connection getInstance() throws ClassNotFoundException {
-		if (connection == null) {
+	public static Connection getInstance() throws ClassNotFoundException, SQLException {
+		if (connection == null || connection.isClosed()) {
 			try {
 				Class.forName(jdbcDriver);
 				connection = DriverManager.getConnection(url, user, passwd);

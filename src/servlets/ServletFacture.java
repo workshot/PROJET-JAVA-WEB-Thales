@@ -8,11 +8,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/commande")
-public class ServletLogin extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+import model.Panier;
 
-	public ServletLogin() {
+@WebServlet("/facture")
+public class ServletFacture extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private Panier panier = new Panier();
+
+	public ServletFacture() {
 		super();
 	}
 
@@ -23,7 +26,11 @@ public class ServletLogin extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		doGet(request, response);
+
+		request.setAttribute("total", panier.getTotal());
+		request.setAttribute("items", panier.getItems());
+		request.getRequestDispatcher("WEB-INF/pageFacture.jsp").forward(request, response);
+
 	}
 
 }

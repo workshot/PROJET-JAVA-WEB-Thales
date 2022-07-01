@@ -2,32 +2,41 @@ package model;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class Panier {
-	private Map<Integer, Integer> items; // idArticle ; quantite
+	private Map<Article, Integer> items; // Article : quantite
 
 	public Panier() {
 		this.items = new HashMap<>();
 	}
 
 	public void addItem(Article article, int quantite) {
-		if (items.containsKey(article.getId())) {
-			quantite += items.get(article.getId());
+		if (items.containsKey(article)) {
+			quantite += items.get(article);
 		}
-		items.put(article.getId(), quantite);
+		items.put(article, quantite);
 	}
 
-	public Map<Integer, Integer> getItems() {
+	public Map<Article, Integer> getItems() {
 		return items;
 	}
 
-	public void setItems(Map<Integer, Integer> items) {
+	public void setItems(Map<Article, Integer> items) {
 		this.items = items;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "Panier [items=" + items + "]";
+	}
+
+	public Object getTotal() {
+		double total = 0;
+		for(Entry<Article, Integer> entry : items.entrySet()) {
+			total += entry .getKey().getPrix() * entry .getValue();			
+		}
+		return total;
 	}
 
 }
