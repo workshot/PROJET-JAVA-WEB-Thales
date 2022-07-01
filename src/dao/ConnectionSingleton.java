@@ -9,7 +9,7 @@ public class ConnectionSingleton {
 	private static final String jdbcDriver = "com.mysql.cj.jdbc.Driver";
 	private static final String url = "jdbc:mysql://localhost:3306/db_bijoux";
 	private static final String user = "root";
-	private static final String passwd = "@mbrE2002laverp";
+	private static final String passwd = "root";
 	
 	public static Connection getInstance() throws ClassNotFoundException, SQLException {
 		if (connection == null || connection.isClosed()) {

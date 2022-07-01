@@ -2,7 +2,7 @@
  * 
  */
  $(document).ready(function(){
-	
+	$('#carousel').elastislide({minItems : 2});
 	formValidator("#frmLogin","#btnLoginSend");
 	formValidator("#frmSignin","#btnSigninSend");
 

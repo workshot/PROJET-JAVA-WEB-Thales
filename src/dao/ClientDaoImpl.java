@@ -11,7 +11,7 @@ import java.util.List;
 import model.Client;
 
 public class ClientDaoImpl implements ClientDao {
-
+ 
 	public void delete(Client c) throws ClassNotFoundException, SQLException {
 		Connection conn = ConnectionSingleton.getInstance();
 
@@ -105,4 +105,68 @@ public class ClientDaoImpl implements ClientDao {
 		return p;
 	}
 
+	public Client checkauthent(String id, String password) throws ClassNotFoundException, SQLException {
+		Client u = findById(id);
+		if (u != null && u.getPassword().equals(password))
+			return u;
+		return null;
+	}
+	
+	public Client connexion(String id, String motdepasse) {
+		Client connectedUser = null;
+		if(this.authentification(id, motdepasse)) {
+			try {
+				connectedUser = this.findById(id);
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return connectedUser;
+	}
+	
+	public boolean authentification(String id, String pass) {
+		boolean estAuthentifie = false;
+		Client userToFind = null;
+		try {
+			userToFind = this.findById(id);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(userToFind != null) {
+			if(userToFind.getPassword().equals(pass)) {
+				estAuthentifie = true;
+			}
+		}
+		return estAuthentifie;
+	}
+
+
+	public boolean isUserExists(String id) throws ClassNotFoundException, SQLException {
+		return (this.findById(id) != null);
+	}
+	
+
+	public boolean inscription(String id, String nom, String pass, boolean seSouvenirdeMoi) throws ClassNotFoundException, SQLException {
+		boolean estInscrit = false;
+		
+		if(!this.isUserExists(id)) {
+			Client nouvelInscrit = new Client();
+			nouvelInscrit.setNom(nom);
+			estInscrit = true;
+		}
+		return estInscrit;
+	}
 }
+	
+
+	
+
+

@@ -23,7 +23,7 @@
 				<div class="row justify-content-md-center">
 					<form id="frmSignin"  action="Inscription" method="post">
 						<div class="form-group">
-							<label for="id">Identifiant: </label> <input type="number"
+							<label for="id">Identifiant: </label> <input type="text"
 								class="form-control" id="id" name="id" aria-describedby="idUserHelp"
 								placeholder="Saisir un identifiant" required="required"> <small
 								id="idUserHelp" class="form-text text-muted">Ceci est

@@ -1,7 +1,8 @@
 package model;
 
 public class Client {
-	private String id;
+
+    private String id;
 	private String nom;
 	private String prenom;
 	private String password;
@@ -25,12 +26,20 @@ public class Client {
 		this.livraison = livraison;
 	}
 
-	public String getId() {
-		return id;
-	}
 
+	public Client(String id, String password) {
+		super();
+		this.id = id;
+		this.password = password;
+	}
+	
 	public void setId(String id) {
 		this.id = id;
+	}
+	
+
+	public String getId() {
+		return id;
 	}
 
 	public String getNom() {
@@ -94,5 +103,7 @@ public class Client {
 		return "Client [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", password=" + password + ", adresse="
 				+ adresse + ", email=" + email + ", tel=" + tel + ", livraison=" + livraison + "]";
 	}
+	
 
+	
 }

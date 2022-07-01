@@ -1,4 +1,4 @@
-package serv;
+package servlets;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -33,7 +33,7 @@ public class InscriptionServlet extends HttpServlet {
 		String tel = request.getParameter("tel");
 		String livraison = request.getParameter("livraison");
 			
-        Client u = new Client(id, password, nom, prenom, adresse, email, tel, livraison);
+        Client u = new Client(id, nom, prenom, password, adresse, email, tel, livraison);
 	
 		ClientDaoImpl user = new ClientDaoImpl();
 		
