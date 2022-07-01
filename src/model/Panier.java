@@ -15,6 +15,7 @@ public class Panier {
 		if (items.containsKey(article)) {
 			quantite += items.get(article);
 		}
+		
 		items.put(article, quantite);
 	}
 

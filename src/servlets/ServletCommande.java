@@ -24,6 +24,7 @@ public class ServletCommande extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		if (request.getParameter("art") != null) {
 			int idArticle = Integer.parseInt(request.getParameter("art"));
 			Article article = null;

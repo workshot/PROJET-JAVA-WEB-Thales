@@ -1,4 +1,4 @@
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ include file="/header.jsp"%>
 <head>
 <link rel="stylesheet" type="text/css"
@@ -27,15 +27,17 @@
 			<form action="commande" method="get">
 
 				<select name="art">
-					<option value='' disabled selected><p>Sélectionnez un article...</p></option>
+					<option value='' disabled selected><p>Sélectionnez un
+							article...</p>
+					</option>
 					<c:forEach var="c" items="${applicationScope.categories}">
 						<optgroup label="${c.value}">
 
 							<c:forEach var="a" items="${applicationScope.articles}">
 								<c:if test="${a.idCategorie == c.key}">
-									<option value='<c:out value="${a.id}"/>'>${a.nom} (
-									<fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="2" value="${a.prix}" />
-									 &euro;)
+									<option value='<c:out value="${a.id}"/>'>${a.nom}(
+										<fmt:formatNumber type="number" minFractionDigits="2"
+											maxFractionDigits="2" value="${a.prix}" /> &euro;)
 									</option>
 								</c:if>
 							</c:forEach>
@@ -71,12 +73,18 @@
 						<tr>
 							<td><c:out value="${i.key.nom}" /></td>
 							<td><c:out value="${i.value}" /></td>
-							<td><fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="2" value="${i.value * i.key.prix}" /></td>
+							<td><fmt:formatNumber type="number" minFractionDigits="2"
+									maxFractionDigits="2" value="${i.value * i.key.prix}" /></td>
 						</tr>
 					</c:forEach>
 				</table>
 				<br />
-				<h6 class="total">Total : <fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="2" value="${sessionScope.total}" /> &euro;</h6>
+				<h6 class="total">
+					Total :
+					<fmt:formatNumber type="number" minFractionDigits="2"
+						maxFractionDigits="2" value="${sessionScope.total}" />
+					&euro;
+				</h6>
 				<br />
 
 				<button type="submit">Valider le panier</button>

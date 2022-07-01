@@ -32,6 +32,7 @@ public class ServletFacture extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		request.setAttribute("total", panier.getTotal());
 		request.setAttribute("items", panier.getItems());
 		request.getRequestDispatcher("WEB-INF/pageFacture.jsp").forward(request, response);
@@ -39,6 +40,7 @@ public class ServletFacture extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		panier.setItems((Map<Article, Integer>) request.getSession(true).getAttribute("items"));
 		String idClient = "1";
 		try {

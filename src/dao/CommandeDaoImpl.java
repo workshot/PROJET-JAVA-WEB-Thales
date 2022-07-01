@@ -29,6 +29,7 @@ public class CommandeDaoImpl implements CommandeDao {
 		String sql = "update commande set idClient='" + c.getIdClient() + "', date='"
 				+ new java.sql.Date(c.getDate().getTime()) + "', total=" + c.getTotal() + " where id=" + c.getId();
 		Statement st = conn.createStatement();
+		
 		st.executeUpdate(sql);
 
 		conn.close();

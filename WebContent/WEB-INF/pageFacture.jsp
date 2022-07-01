@@ -12,8 +12,7 @@
 		<c:out value="${sessionScope.client}" />
 	</h2>
 	<h3>
-		Montant total du panier :
-		<fmt:formatNumber type="number" minFractionDigits="2"
+		Montant total du panier : <fmt:formatNumber type="number" minFractionDigits="2"
 			maxFractionDigits="2" value="${sessionScope.total}" />
 		&euro;
 	</h3>

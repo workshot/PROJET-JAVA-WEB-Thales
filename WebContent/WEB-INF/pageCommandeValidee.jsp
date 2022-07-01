@@ -14,8 +14,7 @@
 	<h3>
 		Le montant total est de
 		<fmt:formatNumber type="number" minFractionDigits="2"
-			maxFractionDigits="2" value="${sessionScope.total}" />
-		&euro;.
+			maxFractionDigits="2" value="${sessionScope.total}" /> &euro;.
 	</h3>
 
 
