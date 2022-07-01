@@ -1,0 +1,77 @@
+package serv;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import dao.ClientDaoImpl;
+import model.Client;
+
+
+@WebServlet("/Login")
+public class LoginServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+    public LoginServlet() {
+        super();
+    }
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int id = Integer.parseInt(request.getParameter("id"));
+		String pass = request.getParameter("password");
+		Client u = null;
+		//PrintWriter pwOut = response.getWriter(); 
+		try {
+			u = new ClientDaoImpl().checkauthent(id , pass);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+		if(u != null){
+			request.setAttribute("u", u);
+			request.getRequestDispatcher("articleTest.jsp").forward(request, response);
+		}
+		else{
+		/*	pwOut.print("<p style=\"color:red\">Incorrect Username or Password!</p>");
+			request.getRequestDispatcher("fail.jsp").forward(request, response);*/
+	
+		}
+	//	pwOut.close();
+}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+	
+	
+	public boolean deconnecter(HttpSession session) {
+		boolean estDeconnecte = false;
+		Object user = session.getAttribute("USER_CONNECTED_SESSION");
+		if(user != null) {
+			session.invalidate();
+			estDeconnecte = true;
+		}
+		return estDeconnecte;
+	}
+	
+	
+	public boolean inscrire(int idUser, String nom, String pass,boolean sesouvenirdemoi) throws ClassNotFoundException, SQLException {
+		return new ClientDaoImpl().inscription(idUser, nom, pass,false );
+	}
+	
+	
+	public boolean connecter(HttpSession session, int id, String password) {
+		boolean estConnecte = false;
+		if(new ClientDaoImpl().authentification(id , password)) {
+			session.setAttribute("USER_CONNECTED_SESSION",new ClientDaoImpl().connexion(id, password));
+			estConnecte = true;
+		}
+		return estConnecte;
+	}
+
+}
