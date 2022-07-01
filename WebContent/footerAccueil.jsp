@@ -37,7 +37,18 @@
 
 </footer>
 
-
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/jquerypp.custom.js"></script>
+<script type="text/javascript" src="assets/js/jquery.elastislide.js"></script>
 <script type="text/javascript" src="assets/js/main.js"></script>
+
+<script type="text/javascript">
+
+        $('#carousel').elastislide({
+            minItems: 2
+        });
+
+    </script>
+
 
 
