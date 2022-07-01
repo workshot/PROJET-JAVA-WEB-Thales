@@ -1,4 +1,4 @@
-package serv;
+package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -60,10 +60,11 @@ public class LoginServlet extends HttpServlet {
 	}
 	
 	
+
 	public boolean inscrire(String id, String nom, String pass,boolean sesouvenirdemoi) throws ClassNotFoundException, SQLException {
 		return new ClientDaoImpl().inscription(id, nom, pass,false );
+
 	}
-	
 	
 	public boolean connecter(HttpSession session, String id, String password) {
 		boolean estConnecte = false;

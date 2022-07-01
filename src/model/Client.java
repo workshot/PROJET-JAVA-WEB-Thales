@@ -1,31 +1,21 @@
 package model;
 
 public class Client {
-	
-    private String id;
 
+    private String id;
 	private String nom;
-	
 	private String prenom;
-	
 	private String password;
-	
 	private String adresse;
-	
 	private String email;
-	
 	private String tel;
-	
 	private String livraison;
 
 	public Client() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Client(String id, String nom, String prenom, String password, String adresse, String email, String tel,
 			String livraison) {
-		super();
 		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
@@ -36,18 +26,20 @@ public class Client {
 		this.livraison = livraison;
 	}
 
+
 	public Client(String id, String password) {
 		super();
 		this.id = id;
 		this.password = password;
 	}
+	
+	public void setId(String id) {
+		this.id = id;
+	}
+	
 
 	public String getId() {
 		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
 	}
 
 	public String getNom() {
@@ -108,25 +100,8 @@ public class Client {
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Client [id=");
-		builder.append(id);
-		builder.append(", nom=");
-		builder.append(nom);
-		builder.append(", prenom=");
-		builder.append(prenom);
-		builder.append(", password=");
-		builder.append(password);
-		builder.append(", adresse=");
-		builder.append(adresse);
-		builder.append(", email=");
-		builder.append(email);
-		builder.append(", tel=");
-		builder.append(tel);
-		builder.append(", livraison=");
-		builder.append(livraison);
-		builder.append("]");
-		return builder.toString();
+		return "Client [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", password=" + password + ", adresse="
+				+ adresse + ", email=" + email + ", tel=" + tel + ", livraison=" + livraison + "]";
 	}
 	
 

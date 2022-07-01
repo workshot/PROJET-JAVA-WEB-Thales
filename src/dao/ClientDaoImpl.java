@@ -1,84 +1,79 @@
 package dao;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import model.Client;
 
-public class ClientDaoImpl implements DaoClient{
+public class ClientDaoImpl implements ClientDao {
+ 
+	public void delete(Client c) throws ClassNotFoundException, SQLException {
+		Connection conn = ConnectionSingleton.getInstance();
 
-	public void delete(Client u) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bijou", "root", "root");
+		String sql = "delete from client where id='" + c.getId() + "'";
 
-		String sql = "delete from  client where id= " + u.getId();
-
-		Statement st = conn.createStatement();
-		st.executeUpdate(sql);
-
-		conn.close();
-
-	}
-
-	public void update(Client u) throws ClassNotFoundException, SQLException {
-
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_bijoux", "root", "root");
-
-		String sql = "update client set id='" + u.getId() + "',password='" + u.getPassword() + "',nom="+u.getNom()+ "',adresse="+u.getAdresse()+ "',email="+u.getEmail()+ "',tel="+u.getTel()+ "',livraison="+u.getLivraison()+ " where prenom="
-				+ u.getPrenom();
 		Statement st = conn.createStatement();
 		st.executeUpdate(sql);
 
 		conn.close();
 	}
 
-	public void create(Client u) throws ClassNotFoundException, SQLException {
+	public void update(Client c) throws ClassNotFoundException, SQLException {
+		Connection conn = ConnectionSingleton.getInstance();
 
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_bijoux", "root", "root");
+		String sql = "update client set nom='" + c.getNom() + "', prenom='" + c.getPrenom() + "', password='"
+				+ c.getPassword() + "',adresse='" + c.getAdresse() + "',email='" + c.getEmail() + "',tel='" + c.getTel()
+				+ "',livraison='" + c.getLivraison() + "' where id='" + c.getId() + "'";
+		Statement st = conn.createStatement();
 
-		String sql = "insert into client values(?, ?, ?, ?, ?, ?, ?, ?)";
+		st.executeUpdate(sql);
+		conn.close();
+	}
+
+	public void create(Client p) throws ClassNotFoundException, SQLException {
+		Connection conn = ConnectionSingleton.getInstance();
+
+		String sql = "insert into client values(?,?,?,?,?,?,?,?)";
 		PreparedStatement ps = conn.prepareStatement(sql);
-		ps.setString(1, u.getId());
-		ps.setString(3, u.getNom());
-		ps.setString(4, u.getPrenom());
-		ps.setString(2, u.getPassword());
-		ps.setString(5, u.getAdresse());
-		ps.setString(6, u.getEmail());
-		ps.setString(7, u.getTel());
-		ps.setString(8, u.getLivraison());
-
+		ps.setString(1, p.getId());
+		ps.setString(2, p.getNom());
+		ps.setString(3, p.getPrenom());
+		ps.setString(4, p.getPassword());
+		ps.setString(5, p.getAdresse());
+		ps.setString(6, p.getEmail());
+		ps.setString(7, p.getTel());
+		ps.setString(8, p.getLivraison());
 		ps.executeUpdate();
 
 		conn.close();
 	}
 
 	public List<Client> findAll() throws ClassNotFoundException, SQLException {
-		ArrayList<Client> liste = new ArrayList<Client>();
+		Connection conn = ConnectionSingleton.getInstance();
 
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_bijoux", "root", "root");
+		List<Client> liste = new ArrayList<>();
 
 		String sql = "select * from client";
 		Statement st = conn.createStatement();
 		ResultSet rs = st.executeQuery(sql);
 
-		Client u = null;
+		Client p = null;
 		while (rs.next()) {
-			u = new Client();
-			u.setId(rs.getString("id"));
-			u.setNom(rs.getString("nom"));
-			u.setPrenom(rs.getString("prenom"));
-			u.setPassword(rs.getString("password"));
-			u.setAdresse(rs.getString("adresse"));
-			u.setEmail(rs.getString("email"));
-			u.setTel(rs.getString("tel"));
-			u.setLivraison(rs.getString("livrison"));
-			liste.add(u);
-
+			p = new Client();
+			p.setId(rs.getString("id"));
+			p.setNom(rs.getString("nom"));
+			p.setPrenom(rs.getString("prenom"));
+			p.setPassword(rs.getString("password"));
+			p.setAdresse(rs.getString("adresse"));
+			p.setEmail(rs.getString("email"));
+			p.setTel(rs.getString("tel"));
+			p.setLivraison(rs.getString("livraison"));
+			liste.add(p);
 		}
 
 		conn.close();
@@ -86,30 +81,29 @@ public class ClientDaoImpl implements DaoClient{
 	}
 
 	public Client findById(String id) throws ClassNotFoundException, SQLException {
-		Client u = null;
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_bijoux", "root", "root");
+		Connection conn = ConnectionSingleton.getInstance();
 
-		String sql = "select * from client where id like '" + id + "'";
+		Client p = null;
+
+		String sql = "select * from client where id='" + id + "'";
 		Statement st = conn.createStatement();
 		ResultSet rs = st.executeQuery(sql);
 
 		while (rs.next()) {
-			u = new Client();
-			u.setId(rs.getString("id"));
-			u.setNom(rs.getString("nom"));
-			u.setPrenom(rs.getString("prenom"));
-			u.setPassword(rs.getString("password"));
-			u.setAdresse(rs.getString("adresse"));
-			u.setEmail(rs.getString("email"));
-			u.setTel(rs.getString("tel"));
-			u.setLivraison(rs.getString("livraison"));
-			
+			p = new Client();
+			p.setId(rs.getString("id"));
+			p.setNom(rs.getString("nom"));
+			p.setPrenom(rs.getString("prenom"));
+			p.setPassword(rs.getString("password"));
+			p.setAdresse(rs.getString("adresse"));
+			p.setEmail(rs.getString("email"));
+			p.setTel(rs.getString("tel"));
+			p.setLivraison(rs.getString("livraison"));
 		}
-		conn.close();
-		return u;
-	}
 
+		conn.close();
+		return p;
+	}
 
 	public Client checkauthent(String id, String password) throws ClassNotFoundException, SQLException {
 		Client u = findById(id);
@@ -134,12 +128,6 @@ public class ClientDaoImpl implements DaoClient{
 		return connectedUser;
 	}
 	
-	/**
-	 * 
-	 * @param login
-	 * @param motdepasse
-	 * @return
-	 */
 	public boolean authentification(String id, String pass) {
 		boolean estAuthentifie = false;
 		Client userToFind = null;
@@ -160,27 +148,12 @@ public class ClientDaoImpl implements DaoClient{
 		return estAuthentifie;
 	}
 
-	/**
-	 * 
-	 * @param login_ou_nom
-	 * @return
-	 * @throws SQLException 
-	 * @throws ClassNotFoundException 
-	 */
+
 	public boolean isUserExists(String id) throws ClassNotFoundException, SQLException {
 		return (this.findById(id) != null);
 	}
 	
-	/**
-	 * 
-	 * @param login
-	 * @param nom
-	 * @param motdepasse
-	 * @param seSouvenirdeMoi
-	 * @return
-	 * @throws SQLException 
-	 * @throws ClassNotFoundException 
-	 */
+
 	public boolean inscription(String id, String nom, String pass, boolean seSouvenirdeMoi) throws ClassNotFoundException, SQLException {
 		boolean estInscrit = false;
 		
@@ -191,14 +164,9 @@ public class ClientDaoImpl implements DaoClient{
 		}
 		return estInscrit;
 	}
-
-	
-
-	
-
-
-	
-	
-
-	
 }
+	
+
+	
+
+

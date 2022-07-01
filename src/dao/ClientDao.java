@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import model.Client;
 
-public interface DaoClient extends Dao<Client, String>
+public interface ClientDao extends Dao<Client, String>
 {
 
 	public Client checkauthent(String id, String password) throws ClassNotFoundException, SQLException;
