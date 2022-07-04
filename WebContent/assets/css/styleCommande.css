@@ -1,10 +1,29 @@
 .container {
 	display: flex;
 	flex-wrap: wrap;
+<<<<<<< HEAD
+=======
 	justify-content:center;
+>>>>>>> 01d0df263e38f452ed8403e2cd11b02445492240
 	margin: auto;
 }
 .cardTitle {
+<<<<<<< HEAD
+	width: 60%;
+	margin: auto;
+	box-sizing: border-box;
+	min-width: 450px;
+	margin: 20px;
+	padding: 10px 30px;
+	box-shadow: lightgray 4px 4px 20px;
+}
+
+.card {
+	box-sizing: border-box;
+	min-width: 450px;
+	min-height: 400px;
+	margin: 20px;
+=======
 	margin: auto;
 	padding: 10px 30px;
 }
@@ -13,7 +32,12 @@
 	margin: auto;
 	box-sizing: border-box;
 	min-width: 450px;
+<<<<<<< HEAD
 	height: 150px;
+=======
+	min-height: 300px;
+>>>>>>> 01d0df263e38f452ed8403e2cd11b02445492240
+>>>>>>> branch 'main' of https://github.com/workshot/PROJET-JAVA-WEB-Thales.git
 	padding: 10px 30px;
 	box-shadow: lightgray 4px 4px 20px;
 }
@@ -31,9 +55,13 @@ h2 {
 	height: 70px;
 	font-size: 24px;
 }
+<<<<<<< HEAD
+
+=======
 .facture {
 	text-align : center;
 }
+>>>>>>> 01d0df263e38f452ed8403e2cd11b02445492240
 .prix p {
 	text-align: center;
 }

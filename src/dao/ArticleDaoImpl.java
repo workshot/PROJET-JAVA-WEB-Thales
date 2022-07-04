@@ -98,4 +98,29 @@ public class ArticleDaoImpl implements ArticleDao {
 		return a;
 	}
 
+	public List<Article> selectByName(String nom) throws ClassNotFoundException, SQLException {
+		Connection conn = ConnectionSingleton.getInstance();
+
+		ArrayList<Article> liste = new ArrayList<Article>();
+
+		String sql = "select * from article where nom like '%" + nom.toLowerCase() + "%'";
+		Statement st = conn.createStatement();
+		ResultSet rs = st.executeQuery(sql);
+
+		Article a = null;
+		while (rs.next()) {
+			a = new Article();
+			a.setId(rs.getInt("id"));
+			a.setNom(rs.getString("nom"));
+			a.setPrix(rs.getDouble("prix"));
+			a.setDescription(rs.getString("description"));
+			a.setImg(rs.getString("img"));
+			a.setIdCategorie(rs.getInt("idCategorie"));
+			liste.add(a);
+		}
+
+		conn.close();
+		return liste;
+	}
+
 }

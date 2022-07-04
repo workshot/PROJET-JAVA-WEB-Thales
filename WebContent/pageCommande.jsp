@@ -14,9 +14,8 @@
 				Bienvenue
 				<c:out value="${sessionScope.USER_CONNECTED_SESSION.nom}" />
 				!
-			</h2>
-			<br />
-			<h3 style="text-align: center;">Préparez votre commande en ligne</h3>
+			</h2><br/>
+			<h3 style="text-align:center;">Préparez votre commande en ligne</h3>
 		</div>
 		<br />
 
@@ -28,8 +27,9 @@
 				<form action="commande" method="get">
 
 					<select name="art">
-						<option value='' disabled selected>Sélectionnez un
-							article...</option>
+						<option value='' disabled selected><p>Sélectionnez un
+								article...</p>
+						</option>
 						<c:forEach var="c" items="${applicationScope.categories}">
 							<optgroup label="${c.value}">
 
@@ -85,8 +85,8 @@
 						&euro;
 					</h6>
 					<br />
-					<button type="submit" name="empty"
-						class="btn btn-danger float-left">Vider le panier</button>
+					<button type="submit" name="empty" class="btn btn-danger float-left">Vider le
+						panier</button>
 					<button type="submit" class="btn btn-success float-right">Valider
 						le panier</button>
 

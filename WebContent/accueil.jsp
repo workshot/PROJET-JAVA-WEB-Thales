@@ -10,7 +10,7 @@
 	<main>
 	<%@ include file="accueilBody.jsp" %>
 	</main>
-	
+	</main>
 	<%@ include file="footerAccueil.jsp"%>
 </body>
 </html>

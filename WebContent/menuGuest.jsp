@@ -9,7 +9,7 @@
                     <ul class="navbar-nav mx-auto">
                      <li class="nav-item px-lg-3"><a class="nav-link text-uppercase" href="accueil.jsp">Accueil</a></li>
                         <li class="nav-item px-lg-3"><a class="nav-link text-uppercase" href="pageArticles.jsp">Bijoux</a></li>
-                        <li class="nav-item px-lg-3"><a class="nav-link text-uppercase" href="catBijoux2.jsp">Catégorie</a></li>
+                        <li class="nav-item px-lg-3"><a class="nav-link text-uppercase" href="catBijoux2.jsp">Cat&eacute;gorie</a></li>
                         <li class="nav-item px-lg-3"><a class="nav-link text-uppercase" href="about.jsp">About</a></li>
                         <li class="nav-item px-lg-3"><a class="nav-link text-uppercase" href="store.jsp">Magasin</a></li>
 						

@@ -40,7 +40,7 @@ public class ServletListeArticles extends HttpServlet {
 			} catch (ClassNotFoundException | SQLException e) {
 				e.printStackTrace();
 			}
-			List<Article> articles = new ArrayList();
+			List<Article> articles = new ArrayList<>();
 			try {
 				articles = new ArticleDaoImpl().findAll();
 			} catch (ClassNotFoundException | SQLException e) {
@@ -50,7 +50,6 @@ public class ServletListeArticles extends HttpServlet {
 			request.getServletContext().setAttribute("articles", articles);
 		}
 		doGet(request, response);
-
 	}
 
 }

@@ -19,11 +19,11 @@
                     src="assets/images/boucleOreilleProducts.jpg" alt="..." />
                 <div class="product-item-description d-flex me-auto">
                     <div class="bg-faded p-5 rounded">
-                        <p class="mb-0">Découvrez nos bracelets éthiques, en argent, dorés ou en pierres fines. Nos
-                            bracelets sont fait-main par des artisans de petits ateliers. Ils sont fabriquées par des
-                            artisans de talent, sélectionnés avec soin, Sarmer vous propose des bracelets artisanaux,
-                            aux styles variés et se déclinent en : bracelets ethniques, bracelets bohème chic, et
-                            bracelets épurés.</p>
+                        <p class="mb-0">D&egrave;couvrez nos bracelets &egrave;thiques, en argent, dor&egrave;s ou en pierres fines. Nos
+                            bracelets sont fait-main par des artisans de petits ateliers. Ils sont fabriqu&egrave;es par des
+                            artisans de talent, s&egrave;lectionn&egrave;s avec soin, Sarmer vous propose des bracelets artisanaux,
+                            aux styles vari&egrave;s et se d&egrave;clinent en : bracelets ethniques, bracelets boh&egrave;me chic, et
+                            bracelets &egrave;pur&egrave;s.</p>
                     </div>
                 </div>
             </div>
@@ -44,9 +44,9 @@
                     src="assets/images/bagueProducts.jpg" alt="..." />
                 <div class="product-item-description d-flex ms-auto">
                     <div class="bg-faded p-5 rounded">
-                        <p class="mb-0">Découvrez nos bagues de créateur, créés en pièces uniques ou petites
+                        <p class="mb-0">D&egrave;couvrez nos bagues de cr&egrave;ateur, cr&egrave;&egrave;s en pi&egrave;ces uniques ou petites
                             collections. Des bagues artisanales, majoritairement en argent massif et pierres
-                            semi-précieuses de qualité, avec de jolies finitions. Nos bagues sont toutes faites à la
+                            semi-pr&egrave;cieuses de qualit&egrave;, avec de jolies finitions. Nos bagues sont toutes faites à la
                             main.</p>
                     </div>
                 </div>
@@ -68,9 +68,9 @@
                     src="assets/images/braceletProducts.jpg" alt="..." />
                 <div class="product-item-description d-flex me-auto">
                     <div class="bg-faded p-5 rounded">
-                        <p class="mb-0">écouvrez nos boucles d’oreilles de créateur en argent, en métal fin doré ou
+                        <p class="mb-0">D&egrave;couvrez nos boucles d’oreilles de cr&egrave;ateur en argent, en m&egrave;tal fin dor&egrave; ou
                             pierres fines. Nos boucles d’oreilles artisanales sont fait-main,
-                            en pièces uniques ou petites collections. Nous créons nos modèles avec nos
+                            en pièces uniques ou petites collections. Nous cr&egrave;ons nos modèles avec nos
                             artisans-partenaire.</p>
                     </div>
                 </div>
