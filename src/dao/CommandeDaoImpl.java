@@ -29,13 +29,7 @@ public class CommandeDaoImpl implements CommandeDao {
 		String sql = "update commande set idClient='" + c.getIdClient() + "', date='"
 				+ new java.sql.Date(c.getDate().getTime()) + "', total=" + c.getTotal() + " where id=" + c.getId();
 		Statement st = conn.createStatement();
-
-		// PreparedStatement ps = conn.prepareStatement(sql);
-		// ps.setString(1, c.getIdClient());
-		// ps.setDate(2, );
-		// ps.setDouble(3, c.getTotal());
-		// ps.setInt(4, c.getId());
-
+		
 		st.executeUpdate(sql);
 
 		conn.close();
@@ -60,6 +54,29 @@ public class CommandeDaoImpl implements CommandeDao {
 		List<Commande> liste = new ArrayList<>();
 
 		String sql = "select * from commande";
+		Statement st = conn.createStatement();
+		ResultSet rs = st.executeQuery(sql);
+
+		Commande c = null;
+		while (rs.next()) {
+			c = new Commande();
+			c.setId(rs.getInt("id"));
+			c.setIdClient(rs.getString("idClient"));
+			c.setDate(rs.getDate("date"));
+			c.setTotal(rs.getDouble("total"));
+			liste.add(c);
+		}
+
+		conn.close();
+		return liste;
+	}
+
+	public List<Commande> findByIdClient(String idClient) throws ClassNotFoundException, SQLException {
+		Connection conn = ConnectionSingleton.getInstance();
+
+		List<Commande> liste = new ArrayList<>();
+
+		String sql = "select * from commande where idClient='" + idClient + "'";
 		Statement st = conn.createStatement();
 		ResultSet rs = st.executeQuery(sql);
 

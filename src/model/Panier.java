@@ -15,6 +15,7 @@ public class Panier {
 		if (items.containsKey(article)) {
 			quantite += items.get(article);
 		}
+		
 		items.put(article, quantite);
 	}
 
@@ -31,7 +32,7 @@ public class Panier {
 		return "Panier [items=" + items + "]";
 	}
 
-	public Object getTotal() {
+	public double getTotal() {
 		double total = 0;
 		for(Entry<Article, Integer> entry : items.entrySet()) {
 			total += entry .getKey().getPrix() * entry .getValue();			

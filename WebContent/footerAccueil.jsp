@@ -1,29 +1,15 @@
-<footer class="p-3 mb-2 bg-secondary text-white"">
-
-	<!-- Footer Links -->
-	<div class="container text-center text-md-left">
-
-		<!-- Grid row -->
-		<div class="row">
-
-			<!-- Grid column -->
-			<div class="col-md-6 mx-auto">
-				<p>text.</p>
-
-			</div>
-
-			<!-- Grid column -->
+ <footer class="footer text-faded text-center py-5">
+            <div class="container"><p class="m-0 small">Copyright &copy; Bijoux Sarmer 2022</p></div>
 
 			<hr class="clearfix w-100 d-md-none">
 
 			<!-- Grid column -->
 			<div class="col-md-6 mx-auto">
 				<ul class="list-inline">
-					<li class="list-inline-item"><a href="#">Home</a></li>
+					<li class="list-inline-item"><a href="#">Accueil</a></li>
 					<li class="list-inline-item"><a href="#">Services</a></li>
-					<li class="list-inline-item"><a href="#">About</a></li>
-					<li class="list-inline-item"><a href="#">Terms</a></li>
-					<li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+					<li class="list-inline-item"><a href="#">Informatios</a></li>
+					<li class="list-inline-item"><a href="#"> </a></li>
 				</ul>
 
 			</div>
@@ -32,23 +18,18 @@
 
 	</div>
 
-	<!-- Copyright -->
-	<div class="footer-copyright text-center py-3">© 2022 Copyright</div>
+	
 
 </footer>
+<script src="assets/js/jquery-3.3.1.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+       <script src="assets/js/main.js"></script>
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<script type="text/javascript" src="assets/js/jquerypp.custom.js"></script>
-<script type="text/javascript" src="assets/js/jquery.elastislide.js"></script>
-<script type="text/javascript" src="assets/js/main.js"></script>
+  <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="assets/js/scripts.js"></script>
 
-<script type="text/javascript">
-
-        $('#carousel').elastislide({
-            minItems: 2
-        });
-
-    </script>
-
-
-
+ 

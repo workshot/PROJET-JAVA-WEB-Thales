@@ -9,7 +9,7 @@
 						<h5 class="modal-title" id="modalAuthTitle">Authentification</h5>
 						<button type="button" class="close" data-dismiss="modal"
 							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
+							<!--  <span aria-hidden="true">&times;</span>-->
 						</button>
 					</div>
 					<div class="row justify-content-md-center">
@@ -40,7 +40,7 @@
 							<label class="form-check-label" for="rememberme">Se
 								rappeler de moi</label>
 						</div>
-						<input type="submit" class="btn btn-success btn-lg" value="Se connecter"
+						<input type="submit" class="btn btn-primary btn-lg" value="Se connecter"
 					id="btnLoginSend" disabled="disabled" >
 						
 						</form>

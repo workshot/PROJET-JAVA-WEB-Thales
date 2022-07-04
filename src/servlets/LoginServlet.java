@@ -24,18 +24,22 @@ public class LoginServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
 		String id = request.getParameter("id");
 		String pass = request.getParameter("password");
 		Client u = null;
+		
 		//PrintWriter pwOut = response.getWriter(); 
 		try {
 			u = new ClientDaoImpl().checkauthent(id , pass);
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
-		if(u != null){
+		if( (u != null) ){
 			request.setAttribute("u", u);
-			request.getRequestDispatcher("articleTest.jsp").forward(request, response);
+			
+			session.setAttribute("USER_CONNECTED_SESSION",new ClientDaoImpl().connexion(id, pass));
+			request.getRequestDispatcher("accueil.jsp").forward(request, response);
 		}
 		else{
 		/*	pwOut.print("<p style=\"color:red\">Incorrect Username or Password!</p>");
