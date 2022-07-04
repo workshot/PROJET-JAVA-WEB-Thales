@@ -1,4 +1,4 @@
- <footer class="footer text-faded text-center py-5">
+ <footer class="footer text-faded text-center py-5 fixed-bottom">
             <div class="container"><p class="m-0 small">Copyright &copy; Bijoux Sarmer 2022</p></div>
 
 			<hr class="clearfix w-100 d-md-none">

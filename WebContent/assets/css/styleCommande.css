@@ -1,24 +1,20 @@
 .container {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content:center;
 	margin: auto;
 }
 
 .cardTitle {
-	width: 60%;
 	margin: auto;
-	box-sizing: border-box;
-	min-width: 450px;
-	margin: 20px;
 	padding: 10px 30px;
-	box-shadow: lightgray 4px 4px 20px;
 }
 
 .card {
+	margin: auto;
 	box-sizing: border-box;
 	min-width: 450px;
-	min-height: 400px;
-	margin: 20px;
+	min-height: 300px;
 	padding: 10px 30px;
 	box-shadow: lightgray 4px 4px 20px;
 }
@@ -36,7 +32,9 @@ h2 {
 	height: 70px;
 	font-size: 24px;
 }
-
+.facture {
+	text-align : center;
+}
 .prix p {
 	text-align: center;
 }

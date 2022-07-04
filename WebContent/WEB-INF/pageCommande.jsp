@@ -14,8 +14,8 @@
 				Bienvenue
 				<c:out value="${sessionScope.USER_CONNECTED_SESSION.nom}" />
 				!
-			</h2>
-			<h3>Préparez votre commande en ligne</h3>
+			</h2><br/>
+			<h3 style="text-align:center;">Préparez votre commande en ligne</h3>
 		</div>
 		<br />
 
@@ -94,7 +94,6 @@
 
 				</form>
 			</div>
-			<br /> <br />
 		</div>
 	</div>
 	<%@ include file="/footerAccueil.jsp"%>
