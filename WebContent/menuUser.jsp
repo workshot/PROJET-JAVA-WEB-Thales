@@ -9,7 +9,7 @@
 				</a></li>
 				
 				<li class="nav-item"><a class="nav-link"
-					href="${pageContext.request.contextPath}/Bijouxlist">Bijoux cat</a></li>
+					href="articles">Bijoux cat</a></li>
 			</ul>
 			
 			<div class="dropdown">
