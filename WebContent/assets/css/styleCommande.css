@@ -1,6 +1,17 @@
 .container {
 	display: flex;
-	flex-wrap: wrap;	
+	flex-wrap: wrap;
+	margin: auto;
+}
+
+.cardTitle {
+	width: 60%;
+	margin: auto;
+	box-sizing: border-box;
+	min-width: 450px;
+	margin: 20px;
+	padding: 10px 30px;
+	box-shadow: lightgray 4px 4px 20px;
 }
 
 .card {
@@ -10,6 +21,9 @@
 	margin: 20px;
 	padding: 10px 30px;
 	box-shadow: lightgray 4px 4px 20px;
+}
+.card h5 {
+	margin-bottom : 30px;
 }
 
 img {

@@ -24,7 +24,7 @@ public class ServletCommande extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		if (request.getParameter("art") != null) {
 			int idArticle = Integer.parseInt(request.getParameter("art"));
 			Article article = null;
@@ -46,11 +46,16 @@ public class ServletCommande extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		request.getSession(true).setAttribute("total", panier.getTotal());
-		request.getSession(true).setAttribute("items", panier.getItems());
-		request.getRequestDispatcher("WEB-INF/pageFacture.jsp").forward(request, response);
-
+		if (request.getParameter("empty") != null) {
+			panier = new Panier();
+			request.getSession(true).setAttribute("total", panier.getTotal());
+			request.getSession(true).setAttribute("items", panier.getItems());
+			request.getRequestDispatcher("WEB-INF/pageCommande.jsp").forward(request, response);
+		} else {
+			request.getSession(true).setAttribute("total", panier.getTotal());
+			request.getSession(true).setAttribute("items", panier.getItems());
+			request.getRequestDispatcher("WEB-INF/pageFacture.jsp").forward(request, response);
+		}
 	}
 
 }

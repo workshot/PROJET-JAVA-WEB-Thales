@@ -1,3 +1,4 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ include file="/header.jsp"%>
 <head>
 <link rel="stylesheet" type="text/css"
@@ -22,7 +23,12 @@
 								<h2>${a.nom}</h2>
 								<img src="${a.img}" alt="${a.nom}">
 								<div class="prix">
-									<p>prix TTC : ${a.prix} &euro;</p>
+									<p>
+										prix TTC :
+										<fmt:formatNumber type="number" minFractionDigits="2"
+											maxFractionDigits="2" value="${a.prix}" />
+										&euro;
+									</p>
 								</div>
 							</div>
 							<div class="card popup close" id="${a.id}">
