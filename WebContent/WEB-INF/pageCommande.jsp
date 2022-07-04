@@ -12,7 +12,7 @@
 		<div class="cardTitle" style="margin: auto;">
 			<h2>
 				Bienvenue
-				<c:out value="${sessionScope.client}" />
+				<c:out value="${sessionScope.USER_CONNECTED_SESSION.nom}" />
 				!
 			</h2>
 			<h3>Préparez votre commande en ligne</h3>

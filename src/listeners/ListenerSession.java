@@ -20,7 +20,6 @@ public class ListenerSession implements HttpSessionListener {
 	}
 
 	public void sessionCreated(HttpSessionEvent arg0) {
-		System.out.println("coucou nouvelle session");
 		HttpSession session = arg0.getSession();
 		try {
 			articles = new ArticleDaoImpl().findAll();
@@ -28,10 +27,7 @@ public class ListenerSession implements HttpSessionListener {
 			e.printStackTrace();
 		}
 		session.setAttribute("articles", articles);
-		
-		//a changer : nom saisi
-		session.setAttribute("client", "La Castafiore");
-		
+				
 	}
 
 	public void sessionDestroyed(HttpSessionEvent arg0) {
