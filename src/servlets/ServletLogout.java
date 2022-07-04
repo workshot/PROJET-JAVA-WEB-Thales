@@ -37,10 +37,10 @@ public class ServletLogout extends HttpServlet {
 			session.invalidate();
 			
 		
-			response.setContentType("text/html");  
+		/*	response.setContentType("text/html");  
 			pwOut.println("<script type=\"text/javascript\">");  
 			pwOut.println("alert('Au revoir');");  
-			pwOut.println("</script>");
+			pwOut.println("</script>");*/
 			RequestDispatcher view = request.getRequestDispatcher("accueil.jsp");		
 			view.include(request, response);
 			

@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet {
 			//request.getRequestDispatcher("accueil.jsp").forward(request, response);
 			response.setContentType("text/html");  
 			pwOut.println("<script type=\"text/javascript\">");  
-			pwOut.println("alert('Identifiant ou mot de passe Incorrect!');");  
+			pwOut.println("alert('Identifiant ou mot de passe Incorrect,veuillez saisir vos identifiants de connexion !');");  
 			pwOut.println("</script>");
 			RequestDispatcher view = request.getRequestDispatcher("accueil.jsp");		
 			view.include(request, response);
