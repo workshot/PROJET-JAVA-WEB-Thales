@@ -77,8 +77,8 @@
 						
 						
 						<div class="form-group form-check">
-							<input type="checkbox" class="form-check-input" id="rememberme">
-							<label class="form-check-label" for="rememberme">Se
+							<input type="checkbox"  id="rememberme">
+							<label  for="rememberme">Se
 								rappeler de moi</label>
 						</div>
 							
