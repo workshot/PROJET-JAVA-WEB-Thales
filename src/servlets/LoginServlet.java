@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,7 +30,7 @@ public class LoginServlet extends HttpServlet {
 		String pass = request.getParameter("password");
 		Client u = null;
 		
-		//PrintWriter pwOut = response.getWriter(); 
+		PrintWriter pwOut = response.getWriter(); 
 		try {
 			u = new ClientDaoImpl().checkauthent(id , pass);
 		} catch (ClassNotFoundException | SQLException e) {
@@ -42,11 +43,17 @@ public class LoginServlet extends HttpServlet {
 			request.getRequestDispatcher("accueil.jsp").forward(request, response);
 		}
 		else{
-		/*	pwOut.print("<p style=\"color:red\">Incorrect Username or Password!</p>");
-			request.getRequestDispatcher("fail.jsp").forward(request, response);*/
-	
+		//	pwOut.print("<p style=\"color:red\">Identifiant ou mot de passe Incorrect!</p>");
+			//request.getRequestDispatcher("accueil.jsp").forward(request, response);
+			response.setContentType("text/html");  
+			pwOut.println("<script type=\"text/javascript\">");  
+			pwOut.println("alert('Identifiant ou mot de passe Incorrect!');");  
+			pwOut.println("</script>");
+			RequestDispatcher view = request.getRequestDispatcher("accueil.jsp");		
+			view.include(request, response);
+			
 		}
-	//	pwOut.close();
+		pwOut.close();
 }
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);

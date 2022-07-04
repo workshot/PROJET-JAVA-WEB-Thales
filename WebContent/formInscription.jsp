@@ -83,9 +83,7 @@
 						</div>
 							
 						<input  type="submit" class="btn btn-primary btn-lg" value="S'inscrire"
-					     id="btnLoginSend" >
-			
-						
+					     id="btnLoginSend" >	
 					</form>
 				</div>
 			</div>

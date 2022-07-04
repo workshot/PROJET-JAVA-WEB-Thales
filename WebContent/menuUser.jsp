@@ -18,9 +18,9 @@
     				Mon compte
   				</button>
   				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    				<a class="dropdown-item" href="${pageContext.request.contextPath}/Panier">Mon Panier</a>
+    				<a class="dropdown-item" href="pageCommande.jsp">Mon Panier</a>
     				<div class="dropdown-divider"></div>
-    				<button class="btn dropdown-item" type="button" onclick="deconnecter()">Déconnexion</button>
+    				<button id ="btndeconnection"class="btn dropdown-item" type="button" onclick="window.location.href = 'ServletLogout'">Déconnexion</button>
   				</div>
 			</div>
 		</div>

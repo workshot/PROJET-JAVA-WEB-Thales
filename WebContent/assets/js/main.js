@@ -61,32 +61,6 @@ function connecter(){
 	});
 	}
 
-function deconnecter(){
-	$.ajax({
-		url:"http://localhost:8080/projetBijouxGroupe5/ServletLogout",
-	method: "post",
-	data: {
-	},
-	success:function(data){
-			if(data == true){
-				$("#modalValidationTitle").html("déconnexion");
-				$("#modalValidationMsg").html("A bientôt !");
-				$("#modalvalidation").modal('toggle');
-				setTimeout(function(){
-					$("#modalvalidation").modal('hide');
-					window.location.replace("http://localhost:8686/home");
-				},2000);
-			}
-			else{
-				$("#connerror").html("Hmm, vous n'étiez pas connecté !");
-			}
-		
-	},
-	error:function(error){
-		$("#connerror").html("Problème de connexion au serveur !");	
-	}
-});
-}
 
 $(function() {
 

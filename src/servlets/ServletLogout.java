@@ -30,27 +30,29 @@ public class ServletLogout extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		  PrintWriter pwOut = response.getWriter(); 
+			
+			//remove session
+			HttpSession session = request.getSession(false);
+			session.invalidate();
+			
+		
+			response.setContentType("text/html");  
+			pwOut.println("<script type=\"text/javascript\">");  
+			pwOut.println("alert('Au revoir');");  
+			pwOut.println("</script>");
+			RequestDispatcher view = request.getRequestDispatcher("accueil.jsp");		
+			view.include(request, response);
+			
+			
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        PrintWriter pwOut = response.getWriter(); 
-		
-		//remove session
-		HttpSession session = request.getSession(false);
-		session.invalidate();
-		
-		//print confirmation message and redirect to home page
-		pwOut.print("You have successfully logged out");
-		response.setContentType("text/html");
-		RequestDispatcher view = request.getRequestDispatcher("accueil.jsp");		
-		view.include(request, response);
-		pwOut.close();
-	}
+      
 	
-
+	}
 }

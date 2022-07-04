@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -38,7 +39,7 @@ public class InscriptionServlet extends HttpServlet {
 		ClientDaoImpl user = new ClientDaoImpl();
 		
         boolean estInscrit = false;
-        
+        PrintWriter pwOut = response.getWriter(); 
         try {
 		if(! new ClientDaoImpl().isUserExists(id)) {
 			user.create(u);
@@ -46,11 +47,16 @@ public class InscriptionServlet extends HttpServlet {
 			estInscrit = true;
 	     
 		}else{
-		// afficher user existe	
-			
+		// afficher user existe
+			//pwOut.print("<p style=\"color:red\">l'utilisateur existe déja!</p>");
+			response.setContentType("text/html");  
+			pwOut.println("<script type=\"text/javascript\">");  
+			pwOut.println("alert('l'utilisateur existe déja!');");  
+			pwOut.println("</script>");
 			
 			
 		}
+		pwOut.close();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
